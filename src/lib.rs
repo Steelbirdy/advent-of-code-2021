@@ -3,6 +3,7 @@ extern crate aoc_runner_derive;
 
 pub mod day01;
 pub mod day02;
+mod day03;
 
 pub fn parse_lines<T: std::str::FromStr>(input: &str) -> Vec<T>
 where
