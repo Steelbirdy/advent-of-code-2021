@@ -1,5 +1,3 @@
-use parse_display::{Display, FromStr};
-
 pub type Input = u32;
 
 #[aoc_generator(day7)]
