@@ -1,13 +1,13 @@
 use parse_display::{Display, FromStr};
 
-type Input = Vec<Points>;
+type Input = [Points];
 
 #[derive(Copy, Clone, Display, FromStr)]
 #[display("{0},{1} -> {2},{3}")]
 pub struct Points(usize, usize, usize, usize);
 
 #[aoc_generator(day5)]
-pub fn generator(input: &str) -> Input {
+pub fn generator(input: &str) -> Vec<Points> {
     input.lines().map(|l| l.parse().unwrap()).collect()
 }
 
