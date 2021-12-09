@@ -39,7 +39,7 @@ pub fn part1(input: &Input) -> usize {
 #[aoc(day5, part2)]
 pub fn part2(input: &Input) -> usize {
     let input = input.iter().copied().filter(|&Points(x1, y1, x2, y2)| {
-        x1 == x2 || y1 == y2 || y2.abs_diff(y1) == x2.abs_diff(x1)
+        x1 == x2 || y1 == y2 || y2 as isize - y1 as isize == x2 as isize - x1 as isize
     });
 
     let mut grid: Vec<[u8; 1000]> = Vec::with_capacity(1000);
@@ -55,7 +55,7 @@ pub fn part2(input: &Input) -> usize {
                 x[y1] += 1;
             }
         } else {
-            for d in 0..=x2.abs_diff(x1) {
+            for d in 0..=(x2 as isize - x1 as isize).abs() as usize {
                 let x = if x2 > x1 { x1 + d } else { x1 - d };
                 let y = if y2 > y1 { y1 + d } else { y1 - d };
                 grid[x][y] += 1;
