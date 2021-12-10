@@ -1,3 +1,5 @@
+/// This code has been optimized a good bit, so as a result it's kind of ugly.
+
 pub type Input = [[u8; COLS]; ROWS];
 
 const ROWS: usize = 100;
