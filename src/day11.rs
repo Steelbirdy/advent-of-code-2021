@@ -1,5 +1,5 @@
-use std::collections::HashSet;
 use itertools::Itertools;
+use std::collections::HashSet;
 
 const COLS: usize = 10;
 const ROWS: usize = 10;
@@ -14,17 +14,15 @@ fn flash(grid: &mut Grid<u8>, flashed: &mut HashSet<(usize, usize)>, r: usize, c
 
     for (dr, dc) in (-1..=1).cartesian_product(-1..=1) {
         if dr == dc && dr == 0 {
-            continue
+            continue;
         }
 
         let (nr, nc) = (r as isize + dr, c as isize + dc);
-        if nr >= 0 && nr < ROWS as isize {
-            if nc >= 0 && nc < COLS as isize {
-                let (nr, nc) = (nr as usize, nc as usize);
-                grid[nr][nc] += 1;
-                if grid[nr][nc] > 9 && !flashed.contains(&(nr, nc)) {
-                    count += flash(grid, flashed, nr, nc);
-                }
+        if nr >= 0 && nr < ROWS as isize && nc >= 0 && nc < COLS as isize {
+            let (nr, nc) = (nr as usize, nc as usize);
+            grid[nr][nc] += 1;
+            if grid[nr][nc] > 9 && !flashed.contains(&(nr, nc)) {
+                count += flash(grid, flashed, nr, nc);
             }
         }
     }
