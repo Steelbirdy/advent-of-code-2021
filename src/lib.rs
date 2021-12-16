@@ -15,6 +15,8 @@ mod day11;
 mod day12;
 mod day13;
 mod day14;
+mod day15;
+mod day16;
 
 pub fn parse_lines<T: std::str::FromStr>(input: &str) -> Vec<T>
 where
